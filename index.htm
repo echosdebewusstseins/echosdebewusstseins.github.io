@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protocolo Null - Landing Page de Vendas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            line-height: 1.8;
+            letter-spacing: 0.5px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        /* LANGUAGE TOGGLE */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: #e63946;
+            padding: 12px 20px;
+            border: none;
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            font-family: Arial, sans-serif;
+        }
+
+        .lang-toggle:hover {
+            background: #d62828;
+            transform: scale(1.05);
+        }
+
+        .pt { display: none; }
+        .de { display: block; }
+
+        body.de-active .pt { display: block; }
+        body.de-active .de { display: none; }
+
+        /* DOBRA 1: CHOQUE ONTOLÓGICO */
+        .dobra-1 {
+            background-color: #0a0a0a;
+            border-bottom: 4px solid #e63946;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dobra-1::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(230, 57, 70, 0.08) 0%, rgba(26, 26, 26, 0.9) 100%);
+            pointer-events: none;
+        }
+
+        .dobra-1-content {
+            text-align: center;
+            max-width: 900px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .dobra-1 h1 {
+            font-size: clamp(2.5rem, 10vw, 4.5rem);
+            font-weight: 900;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            line-height: 1.2;
+            color: #ffffff;
+            text-shadow: 0 0 30px rgba(230, 57, 70, 0.3);
+        }
+
+        .dobra-1 .highlight {
+            color: #e63946;
+        }
+
+        .dobra-1 h2 {
+            font-size: clamp(1.1rem, 2.8vw, 1.4rem);
+            font-weight: 400;
+            margin-bottom: 50px;
+            color: #cccccc;
+            line-height: 1.9;
+            max-width: 850px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #e63946;
+            color: #0a0a0a;
+            padding: 20px 50px;
+            font-size: 1rem;
+            font-weight: 900;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: 3px solid #e63946;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 30px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            color: #e63946;
+            transform: scale(1.08);
+            box-shadow: 0 0 20px rgba(230, 57, 70, 0.5);
+        }
+
+        /* DOBRA 2: FACA NA FERIDA */
+        .dobra-2 {
+            background-color: #1a1a1a;
+            border-bottom: 4px solid #e63946;
+            padding: 100px 30px;
+        }
+
+        .dobra-2-content {
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        .dobra-2 h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 50px;
+            color: #e63946;
+            font-weight: 900;
+        }
+
+        .dobra-2 p {
+            font-size: clamp(1rem, 2vw, 1.15rem);
+            margin-bottom: 25px;
+            line-height: 2;
+            color: #d0d0d0;
+        }
+
+        .emphasis-block {
+            background-color: #0a0a0a;
+            border-left: 4px solid #e63946;
+            padding: 30px;
+            margin: 30px 0;
+            font-size: clamp(1.05rem, 2vw, 1.2rem);
+            font-weight: 700;
+            color: #e63946;
+            letter-spacing: 1px;
+        }
+
+        /* DOBRA 3: ARSENAL */
+        .dobra-3 {
+            background-color: #0a0a0a;
+            border-bottom: 4px solid #e63946;
+            padding: 100px 30px;
+        }
+
+        .dobra-3 h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            font-weight: 900;
+        }
+
+        .dobra-3 .subheader {
+            text-align: center;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            color: #b0b0b0;
+            margin-bottom: 60px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+
+        .arsenal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .arsenal-card {
+            background: #1a1a1a;
+            border: 2px solid #333333;
+            padding: 40px;
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .arsenal-card:hover {
+            border-color: #e63946;
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(230, 57, 70, 0.2);
+        }
+
+        .arsenal-card img {
+            width: 100%;
+            max-width: 180px;
+            margin-bottom: 30px;
+            border: 2px solid #e63946;
+        }
+
+        .arsenal-card h3 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #999999;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .arsenal-card h4 {
+            font-size: 2.2rem;
+            color: #e63946;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .arsenal-card p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #a0a0a0;
+            margin-bottom: 0;
+        }
+
+        /* DOBRA 3.5: DEPOIMENTOS */
+        .dobra-depoimentos {
+            background-color: #1a1a1a;
+            border-bottom: 4px solid #e63946;
+            padding: 100px 30px;
+        }
+
+        .dobra-depoimentos h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 80px;
+            font-weight: 900;
+            color: #ffffff;
+        }
+
+        .depoimentos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .depoimento-card {
+            background: #0a0a0a;
+            border: 2px solid #333333;
+            padding: 40px;
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .depoimento-card:hover {
+            border-color: #e63946;
+            box-shadow: 0 15px 30px rgba(230, 57, 70, 0.15);
+        }
+
+        .depoimento-quote {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: #d0d0d0;
+            margin-bottom: 25px;
+            font-style: italic;
+            border-left: 4px solid #e63946;
+            padding-left: 20px;
+        }
+
+        .depoimento-author {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #e63946;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .depoimento-handle {
+            font-size: 0.8rem;
+            color: #888888;
+            margin-top: 5px;
+        }
+
+        /* DOBRA 4: PREÇOS */
+        .dobra-4 {
+            background-color: #0a0a0a;
+            border-bottom: 4px solid #e63946;
+            padding: 100px 30px;
+        }
+
+        .dobra-4 h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 80px;
+            font-weight: 900;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .price-card {
+            background: #1a1a1a;
+            border: 2px solid #333333;
+            padding: 45px 30px;
+            text-align: center;
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .price-card:hover {
+            border-color: #e63946;
+        }
+
+        .price-card.featured {
+            border-color: #e63946;
+            background: #150a0a;
+            transform: scale(1.08);
+            box-shadow: 0 0 40px rgba(230, 57, 70, 0.3);
+        }
+
+        .price-card h3 {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            font-weight: 900;
+            color: #ffffff;
+        }
+
+        .price-card .subtitle {
+            font-size: 0.85rem;
+            color: #888888;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .price-value {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 900;
+            color: #e63946;
+            margin: 35px 0;
+            letter-spacing: 1px;
+        }
+
+        .price-value .old {
+            font-size: 1rem;
+            text-decoration: line-through;
+            color: #666666;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .savings {
+            font-size: 0.85rem;
+            color: #66bb6a;
+            font-weight: 700;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .price-cta {
+            background: #e63946;
+            color: #0a0a0a;
+            padding: 16px 30px;
+            text-decoration: none;
+            font-weight: 900;
+            display: block;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            cursor: pointer;
+            border: none;
+            font-family: 'Courier New', monospace;
+        }
+
+        .price-cta:hover {
+            background: #d62828;
+            transform: scale(1.05);
+        }
+
+        .price-card.gray .price-cta {
+            background: #555555;
+        }
+
+        .price-card.gray .price-cta:hover {
+            background: #777777;
+        }
+
+        /* DOBRA 5: ANTI-MARKETING */
+        .dobra-5 {
+            background-color: #1a1a1a;
+            border-bottom: 4px solid #e63946;
+            padding: 100px 30px;
+        }
+
+        .dobra-5-content {
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        .dobra-5 h2 {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            color: #e63946;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .dobra-5 ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 50px;
+        }
+
+        .dobra-5 li {
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+            padding-left: 40px;
+            position: relative;
+            line-height: 1.8;
+            color: #d0d0d0;
+        }
+
+        .dobra-5 li:before {
+            content: "✕";
+            position: absolute;
+            left: 0;
+            color: #e63946;
+            font-weight: 900;
+            font-size: 1.4rem;
+        }
+
+        .anti-final {
+            background-color: #0a0a0a;
+            border: 2px solid #e63946;
+            padding: 40px;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .anti-final p {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .anti-final .highlight {
+            color: #e63946;
+        }
+
+        /* CLOSING */
+        .closing {
+            background-color: #0a0a0a;
+            border-bottom: 4px solid #e63946;
+            padding: 80px 30px;
+            text-align: center;
+        }
+
+        .closing-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .closing h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            font-weight: 900;
+        }
+
+        .closing p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: #b0b0b0;
+            margin-bottom: 40px;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #000000;
+            padding: 50px 30px;
+            text-align: center;
+            border-top: 3px solid #e63946;
+        }
+
+        footer p {
+            font-size: 0.85rem;
+            color: #555555;
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: #e63946;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        /* ANIMATIONS */
+        @keyframes pulse-glow {
+            0%, 100% { 
+                box-shadow: 0 0 20px rgba(230, 57, 70, 0.3);
+            }
+            50% { 
+                box-shadow: 0 0 40px rgba(230, 57, 70, 0.6);
+            }
+        }
+
+        .price-card.featured {
+            animation: pulse-glow 2.5s infinite;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .price-card.featured {
+                transform: scale(1);
+            }
+
+            .arsenal-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .lang-toggle {
+                top: 15px;
+                right: 15px;
+                padding: 10px 15px;
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<button class="lang-toggle" onclick="toggleLanguage()">🇩🇪 DE | 🇵🇹 PT</button>
+
+<!-- ===================== DOBRA 1: CHOQUE ONTOLÓGICO ===================== -->
+<section class="dobra-1" id="dobra-1">
+    <div class="dobra-1-content">
+        <h1>
+            <span class="pt">A <span class="highlight">AUTÓPSIA</span> DO SEU EGO COMEÇA AQUI.<br>E VOCÊ NÃO VAI GOSTAR DO RESULTADO.</span>
+            <span class="de">DIE <span class="highlight">AUTOPSIE</span> DEINES EGOS BEGINNT HIER.<br>UND DIR WIRD DAS ERGEBNIS NICHT GEFALLEN.</span>
+        </h1>
+        
+        <h2>
+            <span class="pt">A espiritualidade moderna mentiu para você. A verdadeira Não-Dualidade não traz paz, ela traz demolição. Descubra o protocolo exato para operar no caos quando o "Eu" parar de segurar o volante.</span>
+            <span class="de">Die moderne Spiritualität hat dir gelogen. Die wahre Nicht-Dualität bringt nicht Frieden, sie bringt Demolition. Entdecke das exakte Protokoll, um im Chaos zu operieren, wenn das „Ich" das Steuer loslässt.</span>
+        </h2>
+        
+        <a href="#dobra-4" class="cta-button"><span class="pt">INICIAR O PROTOCOLO AGORA</span><span class="de">PROTOKOLL AKTIVIEREN</span></a>
+    </div>
+</section>
+
+<!-- ===================== DOBRA 2: FACA NA FERIDA ===================== -->
+<section class="dobra-2" id="dobra-2">
+    <div class="dobra-2-content">
+        <h2>
+            <span class="pt">O SEU SISTEMA NERVOSO ESTÁ MENTINDO PARA VOCÊ.</span>
+            <span class="de">DEIN NERVENSYSTEM LÜGT DIR.</span>
+        </h2>
+
+        <p>
+            <span class="pt">Você leu os livros. Você meditou. Você acreditou naquelas promessas de paz e harmonia. Mas quando o relógio inverte e você percebe, no silêncio da madrugada, que tem muito mais passado do que futuro... quando uma crise financeira esmaga a sua porta e ameaça tudo o que você demorou décadas para construir... ou quando o seu relacionamento desmorona, te jogando de volta à estaca zero... o seu teatro de "despertar espiritual" vira pó em frações de segundo.</span>
+            <span class="de">Du hast die Bücher gelesen. Du hast meditiert. Du hast an jenen Versprechungen von Frieden und Harmonie geglaubt. Aber wenn sich die Uhr umkehrt und du im Stillen der Nacht erkennst, dass du viel mehr Vergangenheit als Zukunft hast... wenn eine finanzielle Krise deine Tür erdrückt und alles bedroht, das du Jahrzehnte lang aufgebaut hast... oder wenn deine Beziehung zusammenbricht und dich auf Null zurückwirft... dein Theater des "spirituellen Erwachens" wird in Sekundenschnelle zu Staub.</span>
+        </p>
+
+        <div class="emphasis-block">
+            <span class="pt">A sua paz interior é uma farsa tática.</span>
+            <span class="de">Deine innere Frieden ist eine taktische Täuschung.</span>
+        </div>
+
+        <p>
+            <span class="pt">Enquanto você busca conforto emocional, a Matrix continua operando na densidade brutal do mundo real. O que acontece com a sua mente quando a ilusão do controle é arrancada de você à força? A maioria entra em colapso. Pânico. Reboot do Ego.</span>
+            <span class="de">Während du nach emotionalem Komfort suchst, operiert die Matrix in der brutalen Dichte der realen Welt. Was passiert mit deinem Verstand, wenn die Illusion der Kontrolle dir gewaltsam entrissen wird? Die meisten brechen zusammen. Panik. Ego-Neustart.</span>
+        </p>
+
+        <p>
+            <span class="pt">Você não precisa de mais gurus falando em círculos. Você precisa saber COMO FUNCIONA de verdade.</span>
+            <span class="de">Du brauchst keine weiteren Gurus, die im Kreis sprechen. Du brauchst zu wissen, WIE ES WIRKLICH FUNKTIONIERT.</span>
+        </p>
+    </div>
+</section>
+
+<!-- ===================== DOBRA 3: ARSENAL ===================== -->
+<section class="dobra-3" id="dobra-3">
+    <div class="container">
+        <h2>
+            <span class="pt">O PROTOKOLL NULL: O ARQUIVO CLÍNICO DEFINITIVO</span>
+            <span class="de">DAS PROTOKOLL NULL: DAS KLINISCHE ARCHIV</span>
+        </h2>
+
+        <p class="dobra-3 subheader">
+            <span class="pt">A sequência é um funil de descompressão mental: nós matamos a ilusão (Vol 1), estabilizamos a mente no vazio (Vol 2) e, só então, blindamos você para operar no mundo humano (Vol 3).</span>
+            <span class="de">Die Sequenz ist ein Trichter der mentalen Druckentlastung: Wir töten die Illusion (Band 1), stabilisieren den Verstand in der Leere (Band 2) und panzer dich dann, um in der menschlichen Welt zu operieren (Band 3).</span>
+        </p>
+
+        <div class="arsenal-grid">
+            <div class="arsenal-card">
+                <img src="capa_01.png" alt="Band 01">
+                <h3><span class="pt">VOLUME 01</span><span class="de">BAND 01</span></h3>
+                <h4><span class="pt">DIE ZERSTÖRUNG</span><span class="de">DIE ZERSTÖRUNG</span></h4>
+                <p>
+                    <span class="pt">Este não é um guia reconfortante. É uma demolição brutal daquilo que você acredita ser verdade sobre você mesmo. Nós forçamos você a encarar que suas escolhas são mecanismos de defesa programados por trauma e aprovação social. É a fase de sangria: cortamos o suporte vital das mentiras que você conta a si mesmo.</span>
+                    <span class="de">Dies ist kein beruhigender Leitfaden. Es ist eine brutale Demolition dessen, was du für wahr über dich selbst hältst. Wir zwingen dich zu erkennen, dass deine Entscheidungen Abwehrmechanismen sind, die durch Trauma und sozialen Zwang geprägt sind. Es ist die Blutungsphase: Wir durchtrennen die lebenswichtige Unterstützung der Lügen, die du dir selbst erzählst.</span>
+                </p>
+            </div>
+
+            <div class="arsenal-card">
+                <img src="capa_02.png" alt="Band 02">
+                <h3><span class="pt">VOLUME 02</span><span class="de">BAND 02</span></h3>
+                <h4><span class="pt">DIE STILLE</span><span class="de">DIE STILLE</span></h4>
+                <p>
+                    <span class="pt">Após a demolição, ensinamos a reconfiguração. Não é meditação zen, é vigilância tática absoluta. Você aprende a habitar o espaço milimétrico entre o pensamento e a reação, tornando-se imune às oscilações emocionais que destroem casamentos, amizades e sanidade. A verdadeira força é sustentar o silêncio enquanto a sua vida ao redor pega fogo.</span>
+                    <span class="de">Nach der Demolition lehren wir die Neukonfiguration. Es ist keine Zen-Meditation, es ist absolute taktische Wachsamkeit. Du lernst, im Millimeterraum zwischen Gedanke und Reaktion zu verweilen und wirst immun gegen emotionale Schwankungen, die Ehen, Freundschaften und Vernunft zerstören. Die wahre Kraft ist, die Stille zu bewahren, während dein Leben um dich herum brennt.</span>
+                </p>
+            </div>
+
+            <div class="arsenal-card">
+                <img src="capa_03.png" alt="Band 03">
+                <h3><span class="pt">VOLUME 03</span><span class="de">BAND 03</span></h3>
+                <h4><span class="pt">DAS SEIN</span><span class="de">DAS SEIN</span></h4>
+                <p>
+                    <span class="pt">Com o sistema limpo, o Band 03 torna-se o seu manual de sobrevivência no caos humano. Aqui, forjamos o "Ego Instrumental". Você não se torna uma pedra sem sentimentos, você vira um operador blindado. É o pragmatismo aplicado à brutalidade diária: como lidar com familiares tóxicos, sobreviver a golpes financeiros, negociar limites em relacionamentos e tomar decisões críticas sem ser engolido pelo desespero existencial.</span>
+                    <span class="de">Mit einem sauberen System wird Band 03 dein Überlebenshandbuch im menschlichen Chaos. Hier schmieden wir das "Instrumentale Ego". Du wirst kein gefühlloser Stein, du wirst ein gepanzerter Operator. Es ist Pragmatismus angewandt auf die Brutalität des täglichen Lebens: Wie man mit giftigen Familienmitgliedern umgeht, finanzielle Anschläge überlebt, Grenzen in Beziehungen verhandelt und kritische Entscheidungen trifft, ohne von existenziellem Hass verschlungen zu werden.</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== DOBRA 3.5: DEPOIMENTOS ===================== -->
+<section class="dobra-depoimentos" id="dobra-depoimentos">
+    <div class="container">
+        <h2>
+            <span class="pt">O QUE DIZEM NOSSOS LEITORES</span>
+            <span class="de">WAS SAGEN UNSERE LESER</span>
+        </h2>
+
+        <div class="depoimentos-grid">
+            <div class="depoimento-card">
+                <div class="depoimento-quote">
+                    <span class="pt">"Das ist der beste spirituale kanal in Lester Zeit den ich gesehen habe. Super Arbeit erlich, alle deine videos sind richtig gut."</span>
+                    <span class="de">"Das ist der beste spirituale kanal in Lester Zeit den ich gesehen habe. Super Arbeit erlich, alle deine videos sind richtig gut."</span>
+                </div>
+                <div class="depoimento-author"><span class="pt">— Achilles B.</span><span class="de">— Achilles B.</span></div>
+                <div class="depoimento-handle">@AchillesBrachiales</div>
+            </div>
+
+            <div class="depoimento-card">
+                <div class="depoimento-quote">
+                    <span class="pt">"Es fiehl von mir ab wie SCHUPPEN… MITTEN AUF DER STRASSE… UND FÜR EINEN MOMENT FÜHLTE ICH MICH ORIENTIERUNGSLOS… ETWAS WAR GEGANGEN UND ES FÜHLTE SICH LEICHT UND BEFREIT AN… ES WAR DIE REINE LEINWAND Das begriff ich erst später."</span>
+                    <span class="de">"Es fiehl von mir ab wie SCHUPPEN… MITTEN AUF DER STRASSE… UND FÜR EINEN MOMENT FÜHLTE ICH MICH ORIENTIERUNGSLOS… ETWAS WAR GEGANGEN UND ES FÜHLTE SICH LEICHT UND BEFREIT AN… ES WAR DIE REINE LEINWAND Das begriff ich erst später."</span>
+                </div>
+                <div class="depoimento-author"><span class="pt">— Maria K.</span><span class="de">— Maria K.</span></div>
+                <div class="depoimento-handle">@mariakohlruss3805</div>
+            </div>
+
+            <div class="depoimento-card">
+                <div class="depoimento-quote">
+                    <span class="pt">"Einfach Unglaublich und Wunderbar wie Ramana... dieses unaussprechliche Mysterium versucht, es immer wieder in Worten zu kleiden."</span>
+                    <span class="de">"Einfach Unglaublich und Wunderbar wie Ramana... dieses unaussprechliche Mysterium versucht, es immer wieder in Worten zu kleiden."</span>
+                </div>
+                <div class="depoimento-author"><span class="pt">— Hermann H.</span><span class="de">— Hermann H.</span></div>
+                <div class="depoimento-handle">@hermannhinz1679</div>
+            </div>
+
+            <div class="depoimento-card">
+                <div class="depoimento-quote">
+                    <span class="pt">"Wenn der Suchende selbst wenn man ihn sucht....nicht zu finden ist....dann ist das Ziel der Suche erreicht. Ebenso das Ende der Suche. Nicht mehr etwas besonderes sein zu müssen....welch eine Freiheit."</span>
+                    <span class="de">"Wenn der Suchende selbst wenn man ihn sucht....nicht zu finden ist....dann ist das Ziel der Suche erreicht. Ebenso das Ende der Suche. Nicht mehr etwas besonderes sein zu müssen....welch eine Freiheit."</span>
+                </div>
+                <div class="depoimento-author"><span class="pt">— Klaus H.</span><span class="de">— Klaus H.</span></div>
+                <div class="depoimento-handle">@klausherbert9853</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== DOBRA 4: PREÇOS ===================== -->
+<section class="dobra-4" id="dobra-4">
+    <div class="container">
+        <h2>
+            <span class="pt">SELECIONE O SEU NÍVEL DE ACESSO:</span>
+            <span class="de">WÄHLE DEINE ZUGRIFFSEBENE:</span>
+        </h2>
+
+        <div class="pricing-grid">
+            <div class="price-card gray">
+                <h3><span class="pt">O Início</span><span class="de">Der Anfang</span></h3>
+                <p class="subtitle">
+                    <span class="pt">Apenas Band 01<br>(A Demolição)</span>
+                    <span class="de">Nur Band 01<br>(Die Demolition)</span>
+                </p>
+                <div class="price-value">€ 19,90</div>
+                <button class="price-cta" onclick="window.location.href='https://go.hotmart.com/N106476084T'"><span class="pt">COMPRAR</span><span class="de">KAUFEN</span></button>
+            </div>
+
+            <div class="price-card gray">
+                <h3><span class="pt">O Analista</span><span class="de">Der Analyst</span></h3>
+                <p class="subtitle">
+                    <span class="pt">Apenas Band 02<br>(O Silêncio Absoluto)</span>
+                    <span class="de">Nur Band 02<br>(Das Absolute Schweigen)</span>
+                </p>
+                <div class="price-value">€ 19,90</div>
+                <button class="price-cta" onclick="window.location.href='https://go.hotmart.com/Y106022756U'"><span class="pt">COMPRAR</span><span class="de">KAUFEN</span></button>
+            </div>
+
+            <div class="price-card featured">
+                <h3>🔴 <span class="pt">O PROTOCOLO COMPLETO</span><span class="de">DAS PROTOKOLL</span> 🔴</h3>
+                <p class="subtitle">
+                    <span class="pt"><strong>Band 01 + Band 02 + Band 03</strong><br>Arquivo Clínico Completo<br>+ Acesso aos Protocolos de Emergência<br>(Blutungs-Protokoll)</span>
+                    <span class="de"><strong>Alle 3 Bände</strong><br>Klinisches Archiv<br>+ Blutungs-Protokolle</span>
+                </p>
+                <div class="price-value">
+                    <span class="old">~€ 59,70~</span>
+                    <span class="pt">€ 35,90</span>
+                    <span class="de">€ 35,90</span>
+                </div>
+                <p class="savings"><span class="pt">€ 23,80 economizados</span><span class="de">€ 23,80 sparen</span></p>
+                <button class="price-cta" onclick="window.location.href='https://go.hotmart.com/G106477594K'"><span class="pt">LIBERAR ACESSO AGORA</span><span class="de">JETZT FREISCHALTEN</span></button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== DOBRA 5: ANTI-MARKETING ===================== -->
+<section class="dobra-5" id="dobra-5">
+    <div class="dobra-5-content">
+        <h2>
+            <span class="pt">⚠️ AVISO OPERACIONAL: NÃO COMPRE ESTE MATERIAL SE VOCÊ É FRACO.</span>
+            <span class="de">⚠️ OPERATIVE WARNUNG: KAUFE DIESES MATERIAL NICHT, WENN DU SCHWACH BIST.</span>
+        </h2>
+
+        <p style="font-size: 1.1rem; line-height: 1.9; margin-bottom: 40px; color: #b0b0b0; text-align: center;">
+            <span class="pt">Nós não estamos aqui para ser seus terapeutas ou passar a mão na sua cabeça. O Protokoll Null contém métodos brutais de autópsia psicológica e sobrevivência nua e crua.</span>
+            <span class="de">Wir sind nicht hier, um deine Therapeuten zu sein oder dir über den Kopf zu gehen. Das Protokoll Null enthält brutale Methoden der psychologischen Autopsie und rohe Überlebenskunst.</span>
+        </p>
+
+        <ul>
+            <li>
+                <span class="pt">Se você ainda precisa de tapinha nas costas ou tem medo de olhar para a escuridão da sua própria mente... <strong>feche esta página agora.</strong></span>
+                <span class="de">Wenn du immer noch einen Klaps auf den Rücken brauchst oder Angst hast, in die Dunkelheit deines eigenen Verstandes zu schauen... <strong>schließe diese Seite jetzt.</strong></span>
+            </li>
+
+            <li>
+                <span class="pt">Se você busca usar a espiritualidade para fugir da dor em vez de encará-la de frente... <strong>você não pertence a este lugar.</strong></span>
+                <span class="de">Wenn du Spiritualität nutzen willst, um vor Schmerz zu fliehen, anstatt ihm ins Gesicht zu sehen... <strong>du gehörst nicht hier hin.</strong></span>
+            </li>
+
+            <li>
+                <span class="pt">Se seu ego já construiu uma identidade frágil de "ser iluminado e superior"... <strong>prepare-se para vê-la ser triturada.</strong></span>
+                <span class="de">Wenn dein Ego bereits die fragile Identität eines "erleuchteten und überlegenen" aufgebaut hat... <strong>bereite dich vor, es zerschmettert zu sehen.</strong></span>
+            </li>
+        </ul>
+
+        <div class="anti-final">
+            <p>
+                <span class="pt">Mas se você está pronto para operar a máquina, o acesso está liberado.</span>
+                <span class="de">Aber wenn du bereit bist, die Maschine zu bedienen, ist der Zugang freigegeben.</span>
+            </p>
+            
+            <a href="#dobra-4" class="cta-button"><span class="pt">ASSUMIR O CONTROLE DA MÁQUINA</span><span class="de">DIE MASCHINE KONTROLLIEREN</span></a>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== CLOSING ===================== -->
+<section class="closing" id="closing">
+    <div class="closing-content">
+        <h2><span class="pt">É HORA.</span><span class="de">ES IST AN DER ZEIT.</span></h2>
+        <p>
+            <span class="pt">Seu ego sabe que isso significa seu fim. Por isso resiste. Mas se você chegou até aqui, uma parte de você já está pronta para operar a máquina.</span>
+            <span class="de">Dein Ego weiß, dass dies sein Ende bedeutet. Deshalb widersteht es. Aber wenn du bis hierher gekommen bist, ist ein Teil von dir bereits bereit, die Maschine zu bedienen.</span>
+        </p>
+        <a href="#dobra-4" class="cta-button"><span class="pt">PARA O PROTOCOLO</span><span class="de">ZUM PROTOKOLL</span></a>
+    </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+    <p><span class="pt">Protocolo Nulo | Echos Des Bewusstseins</span><span class="de">Protokoll Null | Echos Des Bewusstseins</span></p>
+    <p><span class="pt">Não-Dualidade · Neurociência · Consciência · Operação Tática</span><span class="de">Nicht-Dualität · Neurowissenschaft · Bewusstsein · Operative Demolition</span></p>
+    <p style="margin-top: 20px;"><span class="pt">Dúvidas? Entre em contato:</span><span class="de">Fragen? Kontaktieren Sie:</span><br><a href="mailto:echosdesbewusstseins@gmail.com">echosdesbewusstseins@gmail.com</a></p>
+    <p style="margin-top: 20px; font-size: 0.75rem; color: #444444;">
+        <span class="pt">© 2026 Mentalis Verlag. Todos os direitos reservados. A leitura é por conta própria.</span>
+        <span class="de">© 2026 Mentalis Verlag. Alle Rechte vorbehalten. Die Lektüre erfolgt auf Eigenverantwortung.</span>
+    </p>
+</footer>
+
+<script>
+function toggleLanguage() {
+    document.body.classList.toggle('de-active');
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+});
+</script>
+
+</body>
+</html>
