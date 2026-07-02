@@ -309,10 +309,10 @@
 
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
-            max-width: 1000px;
-            margin: 0 auto;
+            max-width: 1200px;
+            margin: 0 auto 60px;
         }
 
         .price-card {
@@ -331,13 +331,15 @@
         .price-card.featured {
             border-color: #e63946;
             background: #150a0a;
-            grid-column: span 2;
-            transform: scale(1.08);
+            grid-column: auto;
+            transform: scale(1.12);
             box-shadow: 0 0 40px rgba(230, 57, 70, 0.3);
+            max-width: 350px;
+            margin: 0 auto;
         }
 
         .price-card h3 {
-            font-size: 1.4rem;
+            font-size: 1.92rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-bottom: 15px;
@@ -346,7 +348,7 @@
         }
 
         .price-card .subtitle {
-            font-size: 0.85rem;
+            font-size: 1.02rem;
             color: #888888;
             margin-bottom: 25px;
             line-height: 1.6;
@@ -354,7 +356,7 @@
 
         .price-card img {
             width: 100%;
-            max-width: 140px;
+            max-width: 170px;
             margin: 0 auto 25px;
             border: 2px solid #e63946;
         }
@@ -376,7 +378,7 @@
         }
 
         .savings {
-            font-size: 0.85rem;
+            font-size: 1.02rem;
             color: #66bb6a;
             font-weight: 700;
             margin-bottom: 25px;
@@ -393,7 +395,7 @@
             display: block;
             transition: all 0.3s ease;
             text-transform: uppercase;
-            font-size: 0.9rem;
+            font-size: 1.08rem;
             letter-spacing: 2px;
             cursor: pointer;
             border: none;
@@ -412,6 +414,12 @@
 
         .price-card.featured .price-cta:hover {
             background: #d62828;
+        }
+
+        .combo-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
         }
 
         /* DOBRA 5: ANTI-MARKETING */
@@ -539,13 +547,12 @@
 
         /* RESPONSIVE */
         @media (max-width: 768px) {
-            .price-card.featured {
-                transform: scale(1);
-                grid-column: span 1;
-            }
-
             .pricing-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .price-card.featured {
+                transform: scale(1);
             }
 
             .arsenal-grid {
@@ -556,39 +563,31 @@
 </head>
 <body>
 
-<!-- ===================== DOBRA 1: CHOQUE ONTOLÓGICO ===================== -->
+<!-- ===================== DOBRA 1 ===================== -->
 <section class="dobra-1" id="dobra-1">
     <div class="dobra-1-content">
         <h1>DIE <span class="highlight">AUTOPSIE</span> DEINES EGOS BEGINNT HIER.<br>UND DIR WIRD DAS ERGEBNIS NICHT GEFALLEN.</h1>
-        
         <h2>Die moderne Spiritualität hat dir gelogen. Die wahre Nicht-Dualität bringt nicht Frieden, sie bringt Demolition. Entdecke das exakte Protokoll, um im Chaos zu operieren, wenn das „Ich" das Steuer loslässt.</h2>
-        
         <a href="#dobra-4" class="cta-button">PROTOKOLL AKTIVIEREN</a>
     </div>
 </section>
 
-<!-- ===================== DOBRA 2: FACA NA FERIDA ===================== -->
+<!-- ===================== DOBRA 2 ===================== -->
 <section class="dobra-2" id="dobra-2">
     <div class="dobra-2-content">
         <h2>DEIN NERVENSYSTEM LÜGT DIR.</h2>
-
         <p>Du hast die Bücher gelesen. Du hast meditiert. Du hast an jenen Versprechungen von Frieden und Harmonie geglaubt. Aber wenn sich die Uhr umkehrt und du im Stillen der Nacht erkennst, dass du viel mehr Vergangenheit als Zukunft hast... wenn eine finanzielle Krise deine Tür erdrückt und alles bedroht, das du Jahrzehnte lang aufgebaut hast... oder wenn deine Beziehung zusammenbricht und dich auf Null zurückwirft... dein Theater des \"spirituellen Erwachens\" wird in Sekundenschnelle zu Staub.</p>
-
         <div class="emphasis-block">Deine innere Frieden ist eine taktische Täuschung.</div>
-
         <p>Während du nach emotionalem Komfort suchst, operiert die Matrix in der brutalen Dichte der realen Welt. Was passiert mit deinem Verstand, wenn die Illusion der Kontrolle dir gewaltsam entrissen wird? Die meisten brechen zusammen. Panik. Ego-Neustart.</p>
-
         <p>Du brauchst keine weiteren Gurus, die im Kreis sprechen. Du brauchst zu wissen, WIE ES WIRKLICH FUNKTIONIERT.</p>
     </div>
 </section>
 
-<!-- ===================== DOBRA 3: ARSENAL ===================== -->
+<!-- ===================== DOBRA 3 ===================== -->
 <section class="dobra-3" id="dobra-3">
     <div class="container">
         <h2>DAS PROTOKOLL NULL: DAS KLINISCHE ARCHIV</h2>
-
         <p class="dobra-3 subheader">Die Sequenz ist ein Trichter der mentalen Druckentlastung: Wir töten die Illusion (Band 1), stabilisieren den Verstand in der Leere (Band 2) und panzer dich dann, um in der menschlichen Welt zu operieren (Band 3).</p>
-
         <div class="arsenal-grid">
             <div class="arsenal-card">
                 <img src="capa_01.png" alt="Band 01">
@@ -596,14 +595,12 @@
                 <h4>DIE ZERSTÖRUNG</h4>
                 <p>Dies ist kein beruhigender Leitfaden. Es ist eine brutale Demolition dessen, was du für wahr über dich selbst hältst. Wir zwingen dich zu erkennen, dass deine Entscheidungen Abwehrmechanismen sind, die durch Trauma und sozialen Zwang geprägt sind. Es ist die Blutungsphase: Wir durchtrennen die lebenswichtige Unterstützung der Lügen, die du dir selbst erzählst.</p>
             </div>
-
             <div class="arsenal-card">
                 <img src="capa_02.png" alt="Band 02">
                 <h3>VOLUME 02</h3>
                 <h4>DIE STILLE</h4>
                 <p>Nach der Demolition lehren wir die Neukonfiguration. Es ist keine Zen-Meditation, es ist absolute taktische Wachsamkeit. Du lernst, im Millimeterraum zwischen Gedanke und Reaktion zu verweilen und wirst immun gegen emotionale Schwankungen, die Ehen, Freundschaften und Vernunft zerstören. Die wahre Kraft ist, die Stille zu bewahren, während dein Leben um dich herum brennt.</p>
             </div>
-
             <div class="arsenal-card">
                 <img src="capa_03.png" alt="Band 03">
                 <h3>VOLUME 03</h3>
@@ -614,30 +611,26 @@
     </div>
 </section>
 
-<!-- ===================== DOBRA 3.5: DEPOIMENTOS ===================== -->
+<!-- ===================== DOBRA 3.5 ===================== -->
 <section class="dobra-depoimentos" id="dobra-depoimentos">
     <div class="container">
         <h2>WAS SAGEN UNSERE LESER</h2>
-
         <div class="depoimentos-grid">
             <div class="depoimento-card">
                 <div class="depoimento-quote">\"Das ist der beste spirituale kanal in Lester Zeit den ich gesehen habe. Super Arbeit erlich, alle deine videos sind richtig gut.\"</div>
                 <div class="depoimento-author">— Achilles B.</div>
                 <div class="depoimento-handle">@AchillesBrachiales</div>
             </div>
-
             <div class="depoimento-card">
                 <div class="depoimento-quote">\"Es fiehl von mir ab wie SCHUPPEN… MITTEN AUF DER STRASSE… UND FÜR EINEN MOMENT FÜHLTE ICH MICH ORIENTIERUNGSLOS… ETWAS WAR GEGANGEN UND ES FÜHLTE SICH LEICHT UND BEFREIT AN… ES WAR DIE REINE LEINWAND Das begriff ich erst später.\"</div>
                 <div class="depoimento-author">— Maria K.</div>
                 <div class="depoimento-handle">@mariakohlruss3805</div>
             </div>
-
             <div class="depoimento-card">
                 <div class="depoimento-quote">\"Einfach Unglaublich und Wunderbar wie Ramana... dieses unaussprechliche Mysterium versucht, es immer wieder in Worten zu kleiden.\"</div>
                 <div class="depoimento-author">— Hermann H.</div>
                 <div class="depoimento-handle">@hermannhinz1679</div>
             </div>
-
             <div class="depoimento-card">
                 <div class="depoimento-quote">\"Wenn der Suchende selbst wenn man ihn sucht....nicht zu finden ist....dann ist das Ziel der Suche erreicht. Ebenso das Ende der Suche. Nicht mehr etwas besonderes sein zu müssen....welch eine Freiheit.\"</div>
                 <div class="depoimento-author">— Klaus H.</div>
@@ -651,7 +644,6 @@
 <section class="dobra-4" id="dobra-4">
     <div class="container">
         <h2>WÄHLE DEINE ZUGRIFFSEBENE:</h2>
-
         <div class="pricing-grid">
             <div class="price-card">
                 <img src="capa_01.png" alt="Band 01 - Der Parasit">
@@ -660,7 +652,6 @@
                 <div class="price-value">€ 22,90</div>
                 <button class="price-cta" onclick="window.location.href='https://pay.hotmart.com/N106476084T'">KAUFEN</button>
             </div>
-
             <div class="price-card">
                 <img src="capa_02.png" alt="Band 02 - Die Leere">
                 <h3>Der Analyst</h3>
@@ -668,7 +659,6 @@
                 <div class="price-value">€ 24,90</div>
                 <button class="price-cta" onclick="window.location.href='https://pay.hotmart.com/Y106022756U'">KAUFEN</button>
             </div>
-
             <div class="price-card">
                 <img src="capa_03.png" alt="Band 03 - Das Sein">
                 <h3>Das Sein</h3>
@@ -676,7 +666,8 @@
                 <div class="price-value">€ 27,90</div>
                 <button class="price-cta" onclick="window.location.href='https://pay.hotmart.com/P106432366S'">KAUFEN</button>
             </div>
-
+        </div>
+        <div class="combo-wrapper">
             <div class="price-card featured">
                 <img src="combo_capa.png" alt="DAS PROTOKOLL - Alle 3 Bände">
                 <h3>🔴 DAS PROTOKOLL 🔴</h3>
@@ -692,24 +683,18 @@
     </div>
 </section>
 
-<!-- ===================== DOBRA 5: ANTI-MARKETING ===================== -->
+<!-- ===================== DOBRA 5 ===================== -->
 <section class="dobra-5" id="dobra-5">
     <div class="dobra-5-content">
         <h2>⚠️ OPERATIVE WARNUNG: KAUFE DIESES MATERIAL NICHT, WENN DU SCHWACH BIST.</h2>
-
         <p style="font-size: 1.1rem; line-height: 1.9; margin-bottom: 40px; color: #b0b0b0; text-align: center;">Wir sind nicht hier, um deine Therapeuten zu sein oder dir über den Kopf zu gehen. Das Protokoll Null enthält brutale Methoden der psychologischen Autopsie und rohe Überlebenskunst.</p>
-
         <ul>
             <li>Wenn du immer noch einen Klaps auf den Rücken brauchst oder Angst hast, in die Dunkelheit deines eigenen Verstandes zu schauen... <strong>schließe diese Seite jetzt.</strong></li>
-
             <li>Wenn du Spiritualität nutzen willst, um vor Schmerz zu fliehen, anstatt ihm ins Gesicht zu sehen... <strong>du gehörst nicht hier hin.</strong></li>
-
             <li>Wenn dein Ego bereits die fragile Identität eines \"erleuchteten und überlegenen\" aufgebaut hat... <strong>bereite dich vor, es zerschmettert zu sehen.</strong></li>
         </ul>
-
         <div class="anti-final">
             <p>Aber wenn du bereit bist, die Maschine zu bedienen, ist der Zugang freigegeben.</p>
-            
             <a href="#dobra-4" class="cta-button">DIE MASCHINE KONTROLLIEREN</a>
         </div>
     </div>
