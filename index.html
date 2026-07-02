@@ -309,7 +309,7 @@
 
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 30px;
             max-width: 1000px;
             margin: 0 auto;
@@ -331,12 +331,13 @@
         .price-card.featured {
             border-color: #e63946;
             background: #150a0a;
+            grid-column: span 2;
             transform: scale(1.08);
             box-shadow: 0 0 40px rgba(230, 57, 70, 0.3);
         }
 
         .price-card h3 {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-bottom: 15px;
@@ -349,6 +350,13 @@
             color: #888888;
             margin-bottom: 25px;
             line-height: 1.6;
+        }
+
+        .price-card img {
+            width: 100%;
+            max-width: 140px;
+            margin: 0 auto 25px;
+            border: 2px solid #e63946;
         }
 
         .price-value {
@@ -377,8 +385,8 @@
         }
 
         .price-cta {
-            background: #e63946;
-            color: #0a0a0a;
+            background: #8b3a37;
+            color: #ffffff;
             padding: 16px 30px;
             text-decoration: none;
             font-weight: 900;
@@ -393,16 +401,17 @@
         }
 
         .price-cta:hover {
-            background: #d62828;
+            background: #a84a47;
             transform: scale(1.05);
         }
 
-        .price-card.gray .price-cta {
-            background: #555555;
+        .price-card.featured .price-cta {
+            background: #e63946;
+            color: #0a0a0a;
         }
 
-        .price-card.gray .price-cta:hover {
-            background: #777777;
+        .price-card.featured .price-cta:hover {
+            background: #d62828;
         }
 
         /* DOBRA 5: ANTI-MARKETING */
@@ -532,6 +541,11 @@
         @media (max-width: 768px) {
             .price-card.featured {
                 transform: scale(1);
+                grid-column: span 1;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
             }
 
             .arsenal-grid {
@@ -608,8 +622,8 @@
         <div class="depoimentos-grid">
             <div class="depoimento-card">
                 <div class="depoimento-quote">\"Das ist der beste spirituale kanal in Lester Zeit den ich gesehen habe. Super Arbeit erlich, alle deine videos sind richtig gut.\"</div>
-                <div class="depoimento-author\">— Achilles B.</div>
-                <div class=\"depoimento-handle\">@AchillesBrachiales</div>
+                <div class="depoimento-author">— Achilles B.</div>
+                <div class="depoimento-handle">@AchillesBrachiales</div>
             </div>
 
             <div class="depoimento-card">
@@ -639,22 +653,24 @@
         <h2>WÄHLE DEINE ZUGRIFFSEBENE:</h2>
 
         <div class="pricing-grid">
-            <div class="price-card gray">
+            <div class="price-card">
+                <img src="capa_01.png" alt="Band 01 - Der Parasit">
                 <h3>Der Anfang</h3>
                 <p class="subtitle">Nur Band 01<br>(Die Demolition)</p>
                 <div class="price-value">€ 22,90</div>
                 <button class="price-cta" onclick="window.location.href='https://pay.hotmart.com/N106476084T'">KAUFEN</button>
             </div>
 
-            <div class="price-card gray">
+            <div class="price-card">
+                <img src="capa_02.png" alt="Band 02 - Die Leere">
                 <h3>Der Analyst</h3>
                 <p class="subtitle">Nur Band 02<br>(Das Absolute Schweigen)</p>
                 <div class="price-value">€ 24,90</div>
                 <button class="price-cta" onclick="window.location.href='https://pay.hotmart.com/Y106022756U'">KAUFEN</button>
             </div>
 
-            <div class="price-card gray">
-                <img src="capa_03.png" alt="Band 03 - Das Sein" style="width: 100%; max-width: 160px; margin-bottom: 20px; border: 2px solid #e63946;">
+            <div class="price-card">
+                <img src="capa_03.png" alt="Band 03 - Das Sein">
                 <h3>Das Sein</h3>
                 <p class="subtitle">Nur Band 03<br>(Das Instrumentale Ego)</p>
                 <div class="price-value">€ 27,90</div>
@@ -662,7 +678,7 @@
             </div>
 
             <div class="price-card featured">
-                <img src="combo_capa.png" alt="DAS PROTOKOLL - Alle 3 Bände" style="width: 100%; max-width: 180px; margin-bottom: 20px; border: 2px solid #e63946;">
+                <img src="combo_capa.png" alt="DAS PROTOKOLL - Alle 3 Bände">
                 <h3>🔴 DAS PROTOKOLL 🔴</h3>
                 <p class="subtitle"><strong>Alle 3 Bände</strong><br>Klinisches Archiv<br>+ Blutungs-Protokolle</p>
                 <div class="price-value">
