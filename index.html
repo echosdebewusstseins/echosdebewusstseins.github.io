@@ -295,7 +295,7 @@
         .dobra-4 {
             background-color: #0a0a0a;
             border-bottom: 4px solid #e63946;
-            padding: 100px 30px;
+            padding: 80px 30px;
         }
 
         .dobra-4 h2 {
@@ -303,22 +303,22 @@
             text-align: center;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 80px;
+            margin-bottom: 60px;
             font-weight: 900;
         }
 
         .pricing-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+            gap: 25px;
             max-width: 1200px;
-            margin: 0 auto 60px;
+            margin: 0 auto;
         }
 
         .price-card {
             background: #1a1a1a;
             border: 2px solid #333333;
-            padding: 45px 30px;
+            padding: 35px 25px;
             text-align: center;
             position: relative;
             transition: all 0.4s ease;
@@ -331,57 +331,58 @@
         .price-card.featured {
             border-color: #e63946;
             background: #150a0a;
-            grid-column: auto;
-            transform: scale(1.12);
+            grid-column: span 3;
+            transform: scale(1.05);
             box-shadow: 0 0 40px rgba(230, 57, 70, 0.3);
-            max-width: 350px;
-            margin: 0 auto;
+            padding: 40px 30px;
+            max-width: 100%;
+            margin-bottom: 30px;
         }
 
         .price-card h3 {
-            font-size: 1.92rem;
+            font-size: 1.68rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             font-weight: 900;
             color: #ffffff;
         }
 
         .price-card .subtitle {
-            font-size: 1.02rem;
+            font-size: 0.9rem;
             color: #888888;
-            margin-bottom: 25px;
-            line-height: 1.6;
+            margin-bottom: 20px;
+            line-height: 1.5;
         }
 
         .price-card img {
             width: 100%;
-            max-width: 170px;
-            margin: 0 auto 25px;
+            max-width: 150px;
+            margin: 0 auto 20px;
             border: 2px solid #e63946;
         }
 
         .price-value {
-            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-size: clamp(1.8rem, 4vw, 3rem);
             font-weight: 900;
             color: #e63946;
-            margin: 35px 0;
+            margin: 25px 0;
             letter-spacing: 1px;
         }
 
         .price-value .old {
-            font-size: 1rem;
+            font-size: 0.9rem;
             text-decoration: line-through;
             color: #666666;
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .savings {
-            font-size: 1.02rem;
+            font-size: 0.9rem;
             color: #66bb6a;
             font-weight: 700;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
@@ -389,13 +390,13 @@
         .price-cta {
             background: #8b3a37;
             color: #ffffff;
-            padding: 16px 30px;
+            padding: 13px 25px;
             text-decoration: none;
             font-weight: 900;
             display: block;
             transition: all 0.3s ease;
             text-transform: uppercase;
-            font-size: 1.08rem;
+            font-size: 0.95rem;
             letter-spacing: 2px;
             cursor: pointer;
             border: none;
@@ -414,12 +415,6 @@
 
         .price-card.featured .price-cta:hover {
             background: #d62828;
-        }
-
-        .combo-wrapper {
-            display: flex;
-            justify-content: center;
-            margin-top: 40px;
         }
 
         /* DOBRA 5: ANTI-MARKETING */
@@ -553,6 +548,7 @@
 
             .price-card.featured {
                 transform: scale(1);
+                grid-column: span 1;
             }
 
             .arsenal-grid {
@@ -617,22 +613,22 @@
         <h2>WAS SAGEN UNSERE LESER</h2>
         <div class="depoimentos-grid">
             <div class="depoimento-card">
-                <div class="depoimento-quote">\"Das ist der beste spirituale kanal in Lester Zeit den ich gesehen habe. Super Arbeit erlich, alle deine videos sind richtig gut.\"</div>
+                <div class="depoimento-quote">"Das ist der beste spirituale kanal in Lester Zeit den ich gesehen habe. Super Arbeit erlich, alle deine videos sind richtig gut."</div>
                 <div class="depoimento-author">— Achilles B.</div>
                 <div class="depoimento-handle">@AchillesBrachiales</div>
             </div>
             <div class="depoimento-card">
-                <div class="depoimento-quote">\"Es fiehl von mir ab wie SCHUPPEN… MITTEN AUF DER STRASSE… UND FÜR EINEN MOMENT FÜHLTE ICH MICH ORIENTIERUNGSLOS… ETWAS WAR GEGANGEN UND ES FÜHLTE SICH LEICHT UND BEFREIT AN… ES WAR DIE REINE LEINWAND Das begriff ich erst später.\"</div>
+                <div class="depoimento-quote">"Es fiehl von mir ab wie SCHUPPEN… MITTEN AUF DER STRASSE… UND FÜR EINEN MOMENT FÜHLTE ICH MICH ORIENTIERUNGSLOS… ETWAS WAR GEGANGEN UND ES FÜHLTE SICH LEICHT UND BEFREIT AN… ES WAR DIE REINE LEINWAND Das begriff ich erst später."</div>
                 <div class="depoimento-author">— Maria K.</div>
                 <div class="depoimento-handle">@mariakohlruss3805</div>
             </div>
             <div class="depoimento-card">
-                <div class="depoimento-quote">\"Einfach Unglaublich und Wunderbar wie Ramana... dieses unaussprechliche Mysterium versucht, es immer wieder in Worten zu kleiden.\"</div>
+                <div class="depoimento-quote">"Einfach Unglaublich und Wunderbar wie Ramana... dieses unaussprechliche Mysterium versucht, es immer wieder in Worten zu kleiden."</div>
                 <div class="depoimento-author">— Hermann H.</div>
                 <div class="depoimento-handle">@hermannhinz1679</div>
             </div>
             <div class="depoimento-card">
-                <div class="depoimento-quote">\"Wenn der Suchende selbst wenn man ihn sucht....nicht zu finden ist....dann ist das Ziel der Suche erreicht. Ebenso das Ende der Suche. Nicht mehr etwas besonderes sein zu müssen....welch eine Freiheit.\"</div>
+                <div class="depoimento-quote">"Wenn der Suchende selbst wenn man ihn sucht....nicht zu finden ist....dann ist das Ziel der Suche erreicht. Ebenso das Ende der Suche. Nicht mehr etwas besonderes sein zu müssen....welch eine Freiheit."</div>
                 <div class="depoimento-author">— Klaus H.</div>
                 <div class="depoimento-handle">@klausherbert9853</div>
             </div>
@@ -645,29 +641,6 @@
     <div class="container">
         <h2>WÄHLE DEINE ZUGRIFFSEBENE:</h2>
         <div class="pricing-grid">
-            <div class="price-card">
-                <img src="capa_01.png" alt="Band 01 - Der Parasit">
-                <h3>Der Anfang</h3>
-                <p class="subtitle">Nur Band 01<br>(Die Demolition)</p>
-                <div class="price-value">€ 22,90</div>
-                <button class="price-cta" onclick="window.location.href='https://pay.hotmart.com/N106476084T'">KAUFEN</button>
-            </div>
-            <div class="price-card">
-                <img src="capa_02.png" alt="Band 02 - Die Leere">
-                <h3>Der Analyst</h3>
-                <p class="subtitle">Nur Band 02<br>(Das Absolute Schweigen)</p>
-                <div class="price-value">€ 24,90</div>
-                <button class="price-cta" onclick="window.location.href='https://pay.hotmart.com/Y106022756U'">KAUFEN</button>
-            </div>
-            <div class="price-card">
-                <img src="capa_03.png" alt="Band 03 - Das Sein">
-                <h3>Das Sein</h3>
-                <p class="subtitle">Nur Band 03<br>(Das Instrumentale Ego)</p>
-                <div class="price-value">€ 27,90</div>
-                <button class="price-cta" onclick="window.location.href='https://pay.hotmart.com/P106432366S'">KAUFEN</button>
-            </div>
-        </div>
-        <div class="combo-wrapper">
             <div class="price-card featured">
                 <img src="combo_capa.png" alt="DAS PROTOKOLL - Alle 3 Bände">
                 <h3>🔴 DAS PROTOKOLL 🔴</h3>
@@ -678,6 +651,30 @@
                 </div>
                 <p class="savings">€ 32,80 sparen</p>
                 <button class="price-cta" onclick="window.location.href='https://pay.hotmart.com/G106477594K'">JETZT FREISCHALTEN</button>
+            </div>
+
+            <div class="price-card">
+                <img src="capa_01.png" alt="Band 01 - Der Parasit">
+                <h3>Der Anfang</h3>
+                <p class="subtitle">Nur Band 01<br>(Die Demolition)</p>
+                <div class="price-value">€ 22,90</div>
+                <button class="price-cta" onclick="window.location.href='https://pay.hotmart.com/N106476084T'">KAUFEN</button>
+            </div>
+
+            <div class="price-card">
+                <img src="capa_02.png" alt="Band 02 - Die Leere">
+                <h3>Der Analyst</h3>
+                <p class="subtitle">Nur Band 02<br>(Das Absolute Schweigen)</p>
+                <div class="price-value">€ 24,90</div>
+                <button class="price-cta" onclick="window.location.href='https://pay.hotmart.com/Y106022756U'">KAUFEN</button>
+            </div>
+
+            <div class="price-card">
+                <img src="capa_03.png" alt="Band 03 - Das Sein">
+                <h3>Das Sein</h3>
+                <p class="subtitle">Nur Band 03<br>(Das Instrumentale Ego)</p>
+                <div class="price-value">€ 27,90</div>
+                <button class="price-cta" onclick="window.location.href='https://pay.hotmart.com/P106432366S'">KAUFEN</button>
             </div>
         </div>
     </div>
